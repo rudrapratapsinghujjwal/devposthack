@@ -26,7 +26,7 @@ The idea of linking the price of SUGARByte to real-world sugar prices brings sev
 By integrating the value of SUGARByte with sugar prices, you're creating a dynamic and real-world connected token, setting your project apart in the world of cryptocurrencies. This innovative approach could not only generate interest but also provide real-world utility for a wide range of users and industries.
 *CONTRACT: 0xa1C9F77bb34086673a313aF507bde95921657A94*
 
-# 2 The website: SUGARVerse
+# 2 The website: SUGARVerse (website file)
 1. Landing Page (index.html)
 2. Login Page (login.html)
 3. Signup Page (signup.html)
@@ -52,6 +52,7 @@ User Dashboard → Saved Ideas
 -HTML5, CSS3, JavaScript for structuring, styling, and interactivity
 -Chart.js integration for visualizing investment analytics and data.
 -ChatGpt and Deepseek help were taken to implement the idea. 
+*NOTE:* BACKEND FORMATION WAS NOT SUCCESSFUL 
 
 # 3 The Predicting AI
 My goal is to build a machine learning model that will review the startup ideas ,product ideas etc. given by users based on a set of criteria like originality,feasibility,market potential etc.
@@ -74,7 +75,5 @@ My goal is to build a machine learning model that will review the startup ideas 
 -Run the API with UVicorn
 -Test the full system
 Note: The portal was not working
-
-*SUGARVerse* Loveavle AI Website(Prototype): https://preview--sweetbyte-ideation-nexus.lovable.app/
 
 *SUGARByte* Loveable AI website (Prototype): https://preview--sugar-token-charts-swap.lovable.app/crypto
