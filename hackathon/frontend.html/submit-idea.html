@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Submit Business Idea</title>
+</head>
+<body>
+  <h2>Submit Your Business Idea</h2>
+
+  <form id="ideaForm">
+    <input type="text" id="userId" placeholder="Your User ID" required><br><br>
+    <input type="text" id="title" placeholder="Idea Title" required><br><br>
+    <textarea id="description" placeholder="Idea Description" required></textarea><br><br>
+    <button type="submit">Submit Idea</button>
+  </form>
+
+  <p id="responseMsg"></p>
+
+  <script>
+    const form = document.getElementById('ideaForm');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const userId = document.getElementById('userId').value;
+      const title = document.getElementById('title').value;
+      const description = document.getElementById('description').value;
+
+      const response = await fetch('http://localhost:3000/submit-idea', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          userId: parseInt(userId),
+          ideaTitle: title,
+          ideaDescription: description
+        })
+      });
+
+      const result = await response.json();
+      document.getElementById('responseMsg').innerText = result.message;
+    });
+  </script>
+</body>
+</html>

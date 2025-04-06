@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍭 Sweet Sign Up</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cotton-candy: #FF9FF3;
+      --bubblegum: #FECA57;
+      --lollipop: #FF6B6B;
+      --mint: #1DD1A1;
+      --licorice: #2D3436;
+      --sprinkles: #F7F1E3;
+      --caramel: #E17055;
+      --gradient: linear-gradient(135deg, #FF9FF3 0%, #FECA57 50%, #FF6B6B 100%);
+      --sugar-rush: linear-gradient(90deg, #FF9FF3, #FECA57, #FF6B6B, #1DD1A1, #FF9FF3);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--sprinkles);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .signup-container {
+      background-color: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(255, 155, 243, 0.2);
+      width: 400px;
+      position: relative;
+      z-index: 2;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .signup-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--gradient);
+    }
+
+    .signup-container h2 {
+      color: var(--caramel);
+      text-align: center;
+      font-family: 'Fredoka One', cursive;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      background: var(--sugar-rush);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: sugarShine 3s linear infinite;
+    }
+
+    @keyframes sugarShine {
+      to { background-position: 200% center; }
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: 2px solid var(--sprinkles);
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+      background-color: white;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus {
+      outline: none;
+      border-color: var(--cotton-candy);
+      box-shadow: 0 0 0 3px rgba(255, 155, 243, 0.2);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: var(--gradient);
+      border: none;
+      color: white;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-top: 1rem;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(255, 155, 243, 0.3);
+    }
+
+    button::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 20px;
+      height: 200%;
+      background: rgba(255,255,255,0.2);
+      transform: rotate(30deg);
+      transition: all 0.3s;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 155, 243, 0.4);
+    }
+
+    button:hover::after {
+      left: 120%;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      color: var(--licorice);
+      font-weight: 500;
+    }
+
+    /* Candy decorations */
+    .candy-decoration {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .candy {
+      position: absolute;
+      opacity: 0.6;
+      animation: float 10s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    .gummy-bear {
+      width: 40px;
+      height: 60px;
+      background: var(--cotton-candy);
+      border-radius: 50% 50% 40% 40%;
+      top: 20%;
+      left: 10%;
+    }
+
+    .lollipop {
+      width: 30px;
+      height: 80px;
+      background: transparent;
+      border-left: 8px solid var(--bubblegum);
+      border-radius: 50% 0 0 50%;
+      top: 60%;
+      left: 85%;
+      transform: rotate(45deg);
+    }
+
+    .lollipop::after {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: var(--lollipop);
+      border-radius: 50%;
+      top: -15px;
+      left: -15px;
+    }
+
+    /* Sweet password validation */
+    .password-match {
+      font-size: 0.8rem;
+      margin-top: -0.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--mint);
+      display: none;
+    }
+
+    .password-mismatch {
+      font-size: 0.8rem;
+      margin-top: -0.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--lollipop);
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="candy-decoration">
+    <div class="candy gummy-bear"></div>
+    <div class="candy lollipop"></div>
+  </div>
+
+  <div class="signup-container">
+    <h2>🍬 Sweet Sign Up</h2>
+    <form onsubmit="return saveAndRedirect(event)">
+      <label for="fullname">🍪 Full Name:</label>
+      <input type="text" id="fullname" required placeholder="Your full name">
+
+      <label for="phone">📱 Phone Number:</label>
+      <input type="tel" id="phone" pattern="[0-9]{10}" required placeholder="10-digit number">
+
+      <label for="email">✉️ Email:</label>
+      <input type="email" id="email" required placeholder="Your email address">
+
+      <label for="password">🔒 Password:</label>
+      <input type="password" id="password" required placeholder="Create a password">
+      <div id="password-strength"></div>
+
+      <label for="confirm_password">🔑 Confirm Password:</label>
+      <input type="password" id="confirm_password" required placeholder="Re-enter your password">
+      <div class="password-match" id="password-match">🎉 Passwords match!</div>
+      <div class="password-mismatch" id="password-mismatch">😢 Passwords don't match</div>
+
+      <button type="submit">🍭 Create Sweet Account</button>
+    </form>
+  </div>
+
+  <script>
+    // Password matching validation
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirm_password');
+    const matchMessage = document.getElementById('password-match');
+    const mismatchMessage = document.getElementById('password-mismatch');
+
+    confirmPassword.addEventListener('input', function() {
+      if (password.value && confirmPassword.value) {
+        if (password.value === confirmPassword.value) {
+          matchMessage.style.display = 'block';
+          mismatchMessage.style.display = 'none';
+          confirmPassword.style.borderColor = 'var(--mint)';
+        } else {
+          matchMessage.style.display = 'none';
+          mismatchMessage.style.display = 'block';
+          confirmPassword.style.borderColor = 'var(--lollipop)';
+        }
+      } else {
+        matchMessage.style.display = 'none';
+        mismatchMessage.style.display = 'none';
+        confirmPassword.style.borderColor = 'var(--sprinkles)';
+      }
+    });
+
+    function saveAndRedirect(event) {
+      event.preventDefault();
+
+      const fullName = document.getElementById("fullname").value;
+      const phone = document.getElementById("phone").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirm_password").value;
+
+      // Password validation
+      if (password !== confirmPassword) {
+        // Sweet alert animation
+        const button = document.querySelector('button');
+        button.classList.add('animate__animated', 'animate__shakeX');
+        setTimeout(() => {
+          button.classList.remove('animate__animated', 'animate__shakeX');
+        }, 1000);
+        
+        mismatchMessage.style.display = 'block';
+        return false;
+      }
+
+      const userData = {
+        fullName,
+        phone,
+        email,
+        password
+      };
+
+      // Sweet loading effect
+      const button = document.querySelector('button');
+      button.disabled = true;
+      button.innerHTML = '🍬 Creating your account...';
+
+      // Send the user data to the backend via API
+      fetch('http://localhost:3000/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message === 'User registered successfully') {
+          // Sweet success animation
+          document.querySelector('.signup-container').classList.add('animate__animated', 'animate__bounceOut');
+          setTimeout(() => {
+            window.location.href = "User.html"; // Redirect after successful sign-up
+          }, 500);
+        } else {
+          // Sweet error message
+          button.innerHTML = '🍭 Create Sweet Account';
+          button.disabled = false;
+          alert(data.message); // Show error message if any
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        button.innerHTML = '🍭 Create Sweet Account';
+        button.disabled = false;
+      });
+    }
+  </script>
+</body>
+</html>
