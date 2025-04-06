@@ -24,6 +24,7 @@ The idea of linking the price of SUGARByte to real-world sugar prices brings sev
 4) Novelty and Innovation
 5) Economically Relevant
 By integrating the value of SUGARByte with sugar prices, you're creating a dynamic and real-world connected token, setting your project apart in the world of cryptocurrencies. This innovative approach could not only generate interest but also provide real-world utility for a wide range of users and industries.
+*CONTRACT: 0xa1C9F77bb34086673a313aF507bde95921657A94*
 
 # 2 The website: SUGARVerse
 1. Landing Page (index.html)
@@ -48,11 +49,32 @@ User Dashboard → Saved Ideas
         Client Dashboard ↔ Saved Enquiries
 
 *Technical Implementation*
-HTML5, CSS3, JavaScript for structuring, styling, and interactivity
-Chart.js integration for visualizing investment analytics and data
+-HTML5, CSS3, JavaScript for structuring, styling, and interactivity
+-Chart.js integration for visualizing investment analytics and data.
+-ChatGpt and Deepseek help were taken to implement the idea. 
+*NOTE:* The backend was not created till the end so shifted loveable ai model to present something.
 
-ChatGpt and Deepseek help were taken to implement the idea. 
+# 3 The Predicting AI
+My goal is to build a machine learning model that will review the startup ideas ,product ideas etc. given by users based on a set of criteria like originality,feasibility,market potential etc.
 
+*How to do it?*
+-Load the dataset that contains informations about various startup ideas
+-Then do text cleaning by removing punctuations,digits,stopwords etc.
+-Do TF-IDF so that the text datas is converted into matrix of features that can be used by machine learning algorithms to make decisions
+-Split the data into train-test split where the training set is used to train the model and test set is used to evaluate model's performance.
+-Model training in which the model learns from training data to understand the connection between ideas and evaluation
+-Now after training the model,make predictions using test datas
+-Now evaluate the model by usding different performance metrices like Mean Squared Error,R-squared and Mean Absolute Error
+-Then create an API for model inference here we used FastAPI (because of its fast process,easily usable) which will allow user to submit new idea and get predictions.
+-Then create a python file named app_fastapi.py in the same folder where our model is saved
+  :import necessary libraries(uvicorn,FastAPI)
+  :Create a FastAPI app instance and defied routes for incoming requests
+  :The POST request will be defined to accept the input idea,process it and      use trained model to predict the scores
+-Load the trained ml model using joblib in the fastAPI app(basically a file named app.py)
+-When a POST request is sent with a new idea, the FastAPI app preprocesses the text (cleans and vectorizes it), then uses the trained model to predict the scores for parameters like Originality, Feasibility, etc
+-Run the API with UVicorn
+-Test the full system
+Note: The portal was not working
 
 *SUGARVerse* Loveavle AI Website(Prototype): https://preview--sweetbyte-ideation-nexus.lovable.app/
 
