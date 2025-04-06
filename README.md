@@ -52,7 +52,6 @@ User Dashboard → Saved Ideas
 -HTML5, CSS3, JavaScript for structuring, styling, and interactivity
 -Chart.js integration for visualizing investment analytics and data.
 -ChatGpt and Deepseek help were taken to implement the idea. 
-*NOTE:* The backend was not created till the end so shifted loveable ai model to present something.
 
 # 3 The Predicting AI
 My goal is to build a machine learning model that will review the startup ideas ,product ideas etc. given by users based on a set of criteria like originality,feasibility,market potential etc.
